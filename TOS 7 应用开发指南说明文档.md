@@ -176,7 +176,7 @@ GOOS=linux GOARCH=arm64 CGO_ENABLED=0 go build -o appname-aarch64 main.go
 
 **第 1 步：注册开发者账号**
 
-访问 [TNAS 开发者平台](https://developer.terra-master.com)（即将上线），注册并完成开发者认证。
+访问 <a href="https://developer.terra-master.com" target="_blank" rel="noopener noreferrer">TNAS 开发者平台</a>（即将上线），注册并完成开发者认证。
 
 **第 2 步：选择应用类型**
 
