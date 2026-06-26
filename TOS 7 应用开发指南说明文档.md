@@ -191,9 +191,9 @@ GOOS=linux GOARCH=arm64 CGO_ENABLED=0 go build -o appname-aarch64 main.go
 
 | 模板仓库 | 适用场景 | 技术要点 |
 |---|---|---|
-| [Deb 应用模板（单包）](https://github.com/terra-master/app-template-deb) | WebUI 在 TOS 桌面内打开（iframe） | Unix Socket + 平台代理 + Cookie 鉴权 |
-| [Deb 应用模板（双包）](https://github.com/terra-master/app-template-deb-dual) | WebUI 在新标签页打开 | HTTP 端口 + Nginx 反向代理 + 双包机制 |
-| [Docker 应用模板](https://github.com/terra-master/app-template-docker) | Docker 容器化部署 | docker-compose.yml + 持久化卷 + 非特权模式 |
+| [Deb 应用模板（单包）](https://github.com/jwlv-1314/tos7-template-deb-single) | WebUI 在 TOS 桌面内打开（iframe） | Unix Socket + 平台代理 + Cookie 鉴权 |
+| [Deb 应用模板（双包）](https://github.com/jwlv-1314/tos7-template-deb-double) | WebUI 在新标签页打开 | HTTP 端口 + Nginx 反向代理 + 双包机制 |
+| [Docker 应用模板](https://github.com/jwlv-1314/tos7-template-docker) | Docker 容器化部署 | docker-compose.yml + 持久化卷 + 非特权模式 |
 
 > 每个模板仓库均包含：完整目录结构、config.ini、多语言文件、systemd 服务、
 > 前后端示例代码、生命周期脚本、构建脚本（build.sh）、GitHub Actions CI/CD 配置。
