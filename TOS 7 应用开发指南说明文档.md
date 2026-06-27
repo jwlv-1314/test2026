@@ -454,7 +454,7 @@ for root, _, files in os.walk("your_app_source/"):
 git config --global core.autocrlf input
 ```
 
-## 5. ABI/API 兼容性与稳定性策略
+## 5. ABI 兼容性与稳定性策略
 
 
 ### 5.1 ABI 稳定性规则
@@ -481,23 +481,7 @@ services:
 ```
 
 
-### 5.3 TOS 平台 API
-
-TOS7 对外提供以下官方 API 供应用使用。应用必须使用这些 API，而不是直接操作系统文件。
-
-| API | 方法 | 说明 | 版本 |
-|---|---|---|---|
-| `/v2/proxy/<app_id>/` | ANY | WebUI 内部打开应用的平台代理入口 | v2 |
-| 共享文件夹管理 | `ter_share_add` | 创建共享文件夹 | TOS7.0+ |
-| 应用中心状态 | 平台内部 | 应用安装/启动/停止/卸载生命周期 | TOS7.0+ |
-
-**API 鉴权：**
-- WebUI 内部打开应用：使用 `Cookie` 自定义 Header 携带会话 Cookie（参见 8.10 节）
-- WebUI 外部打开应用：HTTP 标准鉴权
-- 系统级 API 调用：使用 TOS 系统用户上下文
-
-
-### 5.4 测试建议
+### 5.3 测试建议
 
 为确保前向兼容性：
 - 提交前在最新 TOS7 版本上测试你的应用
