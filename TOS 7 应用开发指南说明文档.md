@@ -2103,9 +2103,9 @@ services:
     image: <仓库>/<镜像>:<标签>  # 镜像仅限Docker Hub
     container_name: <appid>
     restart: unless-stopped
-    volumes:
-      - /volume1/docker/<appid>/config:/config
-      - /volume1/docker/<appid>/data:/data
+    Volumes:
+      - /Volume1/docker/<appid>/config:/config
+      - /Volume1/docker/<appid>/data:/data
     ports:
       - "<宿主端口>:<容器端口>"
     environment:
@@ -2208,9 +2208,9 @@ services:
     image: linuxserver/myapp:1.0.0
     container_name: myapp-docker
     restart: unless-stopped
-    volumes:
-      - /volume1/docker/myapp-docker/config:/config
-      - /volume1/docker/myapp-docker/data:/data
+    Volumes:
+      - /Volume1/docker/myapp-docker/config:/config
+      - /Volume1/docker/myapp-docker/data:/data
     ports:
       - "8080:8080"
     environment:
@@ -2256,11 +2256,11 @@ services:
 
 | 操作 | 路径 | 方法 |
 |---|---|---|
-| 备份配置 | `/volume1/docker/<appid>/config` | tar 或 rsync 备份 |
-| 备份数据 | `/volume1/docker/<appid>/data` | tar 或 rsync 备份 |
-| 迁移 | 全部 `/volume1/docker/<appid>/` | 复制到新设备，相同路径 |
-| 重置为默认 | 停止容器 → 删除 `/volume1/docker/<appid>/config` → 重启 | 容器创建全新配置 |
-| 完全删除数据 | 停止容器 → 删除 `/volume1/docker/<appid>/` | 所有数据永久删除 |
+| 备份配置 | `/Volume1/docker/<appid>/config` | tar 或 rsync 备份 |
+| 备份数据 | `/Volume1/docker/<appid>/data` | tar 或 rsync 备份 |
+| 迁移 | 全部 `/Volume1/docker/<appid>/` | 复制到新设备，相同路径 |
+| 重置为默认 | 停止容器 → 删除 `/Volume1/docker/<appid>/config` → 重启 | 容器创建全新配置 |
+| 完全删除数据 | 停止容器 → 删除 `/Volume1/docker/<appid>/` | 所有数据永久删除 |
 
 > 注意：配置和数据分开存储，支持独立备份/恢复。重大升级前务必备份。
 
@@ -2348,9 +2348,9 @@ usermod -aG allusers <appid>
 
 3. **Docker 应用**通过卷挂载共享文件夹：
 ```yaml
-volumes:
-  - /volume1/<共享文件夹>:/data:rw    # 读写访问
-  - /volume1/<共享文件夹>:/media:ro   # 只读访问
+Volumes:
+  - /Volume1/<共享文件夹>:/data:rw    # 读写访问
+  - /Volume1/<共享文件夹>:/media:ro   # 只读访问
 ```
 
 > **重要：** 应用不得直接修改共享文件夹权限。使用 TOS 共享文件夹管理 API 或让用户手动配置访问权限。
@@ -2373,8 +2373,8 @@ volumes:
 3. **权限格式**：
    ```yaml
    # Docker 卷
-   - /volume1/<共享文件夹>:/data:rw   # 读写访问
-   - /volume1/<共享文件夹>:/media:ro  # 只读访问
+   - /Volume1/<共享文件夹>:/data:rw   # 读写访问
+   - /Volume1/<共享文件夹>:/media:ro  # 只读访问
    ```
 
 ### 10.6 系统资源限制
@@ -2571,16 +2571,16 @@ TNAS 开发者平台通过以下方式建立发布者信任：
    ```
 3. 如需要可创建符号链接：
    ```bash
-   ln -s /volume1/<appid>-data /usr/local/<appid>/data
+   ln -s /Volume1/<appid>-data /usr/local/<appid>/data
    ```
 4. 运行时数据存储在 `/var/lib/<appid>/`
 
 **Docker 应用：**
 1. 通过卷挂载所有持久化数据目录：
    ```yaml
-   volumes:
-     - /volume1/docker/<appid>/config:/config
-     - /volume1/docker/<appid>/data:/data
+   Volumes:
+     - /Volume1/docker/<appid>/config:/config
+     - /Volume1/docker/<appid>/data:/data
    ```
 2. 禁止在容器文件系统中存储数据
 3. 配置和数据使用独立卷，以支持独立备份
