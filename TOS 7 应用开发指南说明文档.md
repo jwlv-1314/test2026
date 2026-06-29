@@ -929,7 +929,7 @@ jq empty config.ini
 **常见导致驳回的 JSON 错误：**
 ```json
 {
-  "id": "MyApp",       // ❌ 对象最后一个字段末尾多余逗号
+  "id": "myapp",       // ❌ 对象最后一个字段末尾多余逗号
   "version": '1.0.0',  // ❌ 单引号（必须用双引号）
   // ❌ JSON 不允许注释
   "beta": false,
@@ -938,7 +938,7 @@ jq empty config.ini
 正确写法：
 ```json
 {
-  "id": "MyApp",
+  "id": "myapp",
   "version": "1.0.0",
   "beta": false
 }
