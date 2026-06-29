@@ -747,7 +747,7 @@ config.ini.path            == "/<app_id>/"（WebUI 内部打开）
   "system_id": "<system_id>",
   "package": "<deb_package_name>",
   "application_type": "deb",
-  "path": "/<app_id>/",
+  "path": "http://${ip}:8686",
   "open_path": true
 }
 ```
