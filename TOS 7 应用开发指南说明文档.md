@@ -879,7 +879,8 @@ config.ini 是核心元数据文件，定义应用的身份信息、展示信息
   "system_id": "example",
   "package": "example-app",
   "user": "example",
-  "all_user_display": true
+  "all_user_display": true,
+  "allow_open_in_mobile": false
 }
 ```
 
@@ -912,6 +913,7 @@ config.ini 是核心元数据文件，定义应用的身份信息、展示信息
 | `package` | string | 条件必填 | Deb 包名 | **Deb 应用必填。** 必须与 DEBIAN/control 中的 `Package` 字段一致。Docker 应用留空。 |
 | `user` | string | ✅ 是 | 运行用户 | 应用运行的系统用户。指定后自动创建专属用户（如 `"jellyfin"`）。Deb 应用需与 systemd 服务 `User` 字段匹配。**严禁使用 root 用户。** |
 | `all_user_display` | bool | ✅ 是 | 是否对所有用户展示 | `true` = 所有 TNAS 用户可见；`false` = 仅管理员可见。当为 `false` 时，应用仅在管理员的应用程序中心视图中出现。非管理员用户无法看到或与该应用交互。应用仍在系统范围内安装并为所有用户运行；此设置仅控制可见性。 |
+| `allow_open_in_mobile` | bool | 否 | 是否支持手机端打开 | `true` = 该应用支持手机端打开；`false` = 该应用不支持手机端打开。默认 `false`。 |
 
 #### 8.4.3 关键规则
 
