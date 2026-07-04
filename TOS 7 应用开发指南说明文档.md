@@ -77,7 +77,7 @@ TOS7 应用生态正在向 **容器优先** 模型演进：
 
 - **Docker 应用** 是大多数第三方服务的首选路径
 - 提供更好的隔离性、更简单的依赖管理、跨平台一致性
-- TOS7 存在Docker 引擎（DockerEngine应用，需要安装）提供完整的 Docker Compose 支持
+- TOS7 支持 Docker 容器化部署。使用前，需在应用中心安装 DockerEngine 应用，该应用为 TOS7 提供完整的 Docker Compose 运行环境
 - 未来平台功能（沙箱、资源限制、自动更新）将优先支持 Docker 应用
 
 **特殊应用类型选择规则：**
